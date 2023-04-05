@@ -20,7 +20,15 @@ export default function Footer() {
         >
           open-sourced on Github
         </a>{" "}
-        and hosted on Netlify
+        and{" "}
+        <a
+          className="text-orange"
+          href="https://loquacious-kangaroo-d3e0b0.netlify.app/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          hosted on Netlify
+        </a>
       </p>
     </div>
   );

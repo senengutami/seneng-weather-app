@@ -59,11 +59,11 @@ export default function Weather(props) {
           <div className="flex-1 pl-5">
             <input
               type="submit"
-              className="rounded border px-4 py-2 mr-5 text-white bg-orange"
+              className="rounded border px-4 py-2 mr-5 bg-sky-500 hover:bg-sky-700 text-white"
               value="Search"
             />
 
-            <button class="rounded border  px-4 py-2 text-white bg-orange">
+            <button class="rounded border  px-4 py-2 bg-sky-500 hover:bg-sky-700 text-white">
               Current
             </button>
           </div>

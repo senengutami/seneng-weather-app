@@ -20,17 +20,17 @@ export default function ForecastItem(props) {
     return days[day];
   }
   return (
-    <div className="text-center">
-      <div>{day()}</div>
-      <div>
-        <WeatherIcon code={props.data.weather[0].icon} size={36} />
+    <div className="flex flex-col justify-between  text-center pb-10 ">
+      <div className="text-sky-700">{day()}</div>
+      <div className="pl-[40%] md:pl-3  py-1">
+        <WeatherIcon code={props.data.weather[0].icon} size={55} />
       </div>
       <div>
-        <span>
+        <span className="text-gray-400">
           {maxTemperature()}
           {/* <sup>•</sup> */}
         </span>
-        <span>
+        <span className="text-gray-300">
           {minTemperature()}
           {/* <sup>•</sup> */}
         </span>

@@ -3,9 +3,7 @@ module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
     extend: {
-      colors: {
-        orange: "rgb(236, 110, 76)",
-      },
+      colors: {},
       fontFamily: {
         fira: ['"Fira Code"', "monospace"],
       },

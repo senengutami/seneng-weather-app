@@ -49,7 +49,7 @@ export default function Forecast(props) {
 
   if (loaded) {
     return (
-      <div className="flex flex-row justify-between pb-10 border-b-2 mb-5">
+      <div className="flex flex-col md:flex-row justify-between pb-10 border-b-2 mb-5">
         {forecast.map(function (dailyForecast, index) {
           if (index < 5) {
             return (

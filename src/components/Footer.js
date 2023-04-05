@@ -4,7 +4,7 @@ export default function Footer() {
       <p>
         This project was coded by{" "}
         <a
-          className="text-orange"
+          className="text-sky-500 hover:text-sky-700"
           href="https://www.shecodes.io/graduates/68429-seneng-utami"
           target="_blank"
           rel="noreferrer"
@@ -13,7 +13,7 @@ export default function Footer() {
         </a>{" "}
         this app is{" "}
         <a
-          className="text-orange"
+          className="text-sky-500 hover:text-sky-700"
           href="https://github.com/senengutami/seneng-weather-app"
           target="_blank"
           rel="noreferrer"
@@ -22,7 +22,7 @@ export default function Footer() {
         </a>{" "}
         and{" "}
         <a
-          className="text-orange"
+          className="text-sky-500 hover:text-sky-700"
           href="https://loquacious-kangaroo-d3e0b0.netlify.app/"
           target="_blank"
           rel="noreferrer"

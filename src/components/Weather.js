@@ -10,47 +10,40 @@ export default function Weather(props) {
   const [city, setCity] = useState(props.defCity);
 
   function handleResponse(response) {
-    // const cityName = response.data.name;    // console.log(response.data.name);
-    console.log(response.data);
+    console.log(response);
     setWeatherData({
-      ...weatherData,
       ready: true,
-      coords: response.data.coord,
+      coordinates: response.data.coord,
       temperature: response.data.main.temp,
       humidity: response.data.main.humidity,
       date: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
-      iconUrl: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      icon: response.data.weather[0].icon,
       wind: response.data.wind.speed,
       city: response.data.name,
     });
   }
-  function search() {
-    const apiKey = "46fac47dd8b8fa26d1b6852218ad3dfe";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
-    axios.get(apiUrl).then(handleResponse);
+
+  function handleCityChange(event) {
+    setCity(event.target.value);
   }
+
   function handleSubmit(event) {
     event.preventDefault();
-    const searchCity = event.target.elements.search.value.trim();
-    console.log(searchCity);
-    if (searchCity) {
-      setCity(searchCity);
-    }
     search();
-
-    return;
   }
-  useEffect(() => {
-    search();
-  }, []);
+  function search() {
+    const apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+  }
 
   if (weatherData.ready) {
     return (
       <div>
         <form
-          onSubmit={handleSubmit}
           className="flex flex-col md:flex-row justify-between"
+          onSubmit={handleSubmit}
         >
           <label class="relative block flex-1">
             <FcSearch className="pointer-events-none w-8 h-8 absolute top-1/2 transform -translate-y-1/2 left-2" />
@@ -60,9 +53,9 @@ export default function Weather(props) {
               type="text"
               name="search"
               autoFocus="on"
+              onChange={handleCityChange}
             />
           </label>
-          {/* */}
           <div className="flex-1 pl-5">
             <input
               type="submit"
@@ -76,12 +69,13 @@ export default function Weather(props) {
           </div>
         </form>
 
-        <WeatherDescriptions weatherDesc={weatherData} />
+        <WeatherDescriptions data={weatherData} />
         {/* Forecast */}
-        <Forecast weatherData={weatherData} />
+        <Forecast coordinates={weatherData.coordinates} />
       </div>
     );
   } else {
-    return <p>Loading...</p>;
+    search();
+    return "Loading...";
   }
 }

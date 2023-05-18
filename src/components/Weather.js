@@ -32,9 +32,22 @@ export default function Weather(props) {
     event.preventDefault();
     search();
   }
+
   function search() {
     const apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+
+  function getCurrentPosition(event) {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(searchWeatherOfPosition);
+  }
+
+  function searchWeatherOfPosition(position) {
+    console.log(position);
+    const apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}`;
     axios.get(apiUrl).then(handleResponse);
   }
 
@@ -63,7 +76,10 @@ export default function Weather(props) {
               value="Search"
             />
 
-            <button class="rounded border  px-4 py-2 bg-sky-500 hover:bg-sky-700 text-white">
+            <button
+              class="rounded border  px-4 py-2 bg-sky-500 hover:bg-sky-700 text-white"
+              onClick={(e) => getCurrentPosition(e)}
+            >
               Current
             </button>
           </div>

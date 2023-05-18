@@ -27,12 +27,4 @@ export default function Title() {
       ))}
     </div>
   );
-
-  // return (
-  //   <div className=>
-  //     <span className="hover:cursor-pointer">
-  //       <a href="#">Weather Forecast App</a>
-  //     </span>
-  //   </div>
-  // );
 }

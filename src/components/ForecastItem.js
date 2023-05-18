@@ -1,4 +1,3 @@
-import { TiWeatherPartlySunny } from "react-icons/ti";
 import WeatherIcon from "./WeatherIcon";
 
 export default function ForecastItem(props) {
@@ -26,14 +25,8 @@ export default function ForecastItem(props) {
         <WeatherIcon code={props.data.weather[0].icon} size={55} />
       </div>
       <div>
-        <span className="text-gray-400">
-          {maxTemperature()}
-          {/* <sup>•</sup> */}
-        </span>
-        <span className="text-gray-300">
-          {minTemperature()}
-          {/* <sup>•</sup> */}
-        </span>
+        <span className="text-gray-400">{maxTemperature()}</span>
+        <span className="text-gray-300">{minTemperature()}</span>
       </div>
     </div>
   );

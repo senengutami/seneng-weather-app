@@ -9,7 +9,7 @@ export default function Footer() {
           target="_blank"
           rel="noreferrer"
         >
-          Seneng Utami
+          SENENG UTAMI
         </a>{" "}
         this app is{" "}
         <a

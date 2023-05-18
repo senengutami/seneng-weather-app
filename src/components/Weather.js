@@ -47,7 +47,7 @@ export default function Weather(props) {
   function searchWeatherOfPosition(position) {
     console.log(position);
     const apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
   }
 
@@ -59,7 +59,7 @@ export default function Weather(props) {
           onSubmit={handleSubmit}
         >
           <label class="relative block flex-1">
-            <FcSearch className="pointer-events-none w-8 h-8 absolute top-1/2 transform -translate-y-1/2 left-2" />
+            <FcSearch className="pointer-events-none w-4 h-4 absolute top-1/2 transform -translate-y-1/2 left-2 sm:w-6 sm:h-6" />
             <input
               className=" w-full rounded shadow h-full  pl-12"
               placeholder="Enter a city ..."
@@ -67,6 +67,7 @@ export default function Weather(props) {
               name="search"
               autoFocus="on"
               onChange={handleCityChange}
+              autoComplete="off"
             />
           </label>
           <div className="flex-1 pl-5">
